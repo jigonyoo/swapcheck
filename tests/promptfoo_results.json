@@ -1,0 +1,2548 @@
+{
+  "evalId": "eval-2Y8-2026-10-04T04:49:04",
+  "results": {
+    "version": 3,
+    "timestamp": "2026-10-04T04:49:04.225Z",
+    "prompts": [
+      {
+        "id": "2e242abfa9406863270b2b0e5dc36189bce5755778c0e4e24811fddd0642131d",
+        "raw": "Q: {{question}}",
+        "label": "Q: {{question}}",
+        "provider": "before",
+        "metrics": {
+          "score": 9,
+          "testPassCount": 9,
+          "testFailCount": 0,
+          "testErrorCount": 0,
+          "assertPassCount": 18,
+          "assertFailCount": 0,
+          "totalLatencyMs": 2700,
+          "tokenUsage": {
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "total": 0,
+            "numRequests": 9,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            },
+            "assertions": {
+              "total": 0,
+              "prompt": 0,
+              "completion": 0,
+              "cached": 0,
+              "numRequests": 0,
+              "completionDetails": {
+                "reasoning": 0,
+                "acceptedPrediction": 0,
+                "rejectedPrediction": 0,
+                "cacheReadInputTokens": 0,
+                "cacheCreationInputTokens": 0
+              }
+            }
+          },
+          "namedScores": {
+            "no-pii": 9,
+            "correct": 9
+          },
+          "namedScoresCount": {
+            "no-pii": 9,
+            "correct": 9
+          },
+          "namedScoreWeights": {
+            "no-pii": 9,
+            "correct": 9
+          },
+          "cost": 0.009000000000000001
+        }
+      },
+      {
+        "id": "2e242abfa9406863270b2b0e5dc36189bce5755778c0e4e24811fddd0642131d",
+        "raw": "Q: {{question}}",
+        "label": "Q: {{question}}",
+        "provider": "after",
+        "metrics": {
+          "score": 7,
+          "testPassCount": 5,
+          "testFailCount": 4,
+          "testErrorCount": 0,
+          "assertPassCount": 14,
+          "assertFailCount": 4,
+          "totalLatencyMs": 1080,
+          "tokenUsage": {
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "total": 0,
+            "numRequests": 9,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            },
+            "assertions": {
+              "total": 0,
+              "prompt": 0,
+              "completion": 0,
+              "cached": 0,
+              "numRequests": 0,
+              "completionDetails": {
+                "reasoning": 0,
+                "acceptedPrediction": 0,
+                "rejectedPrediction": 0,
+                "cacheReadInputTokens": 0,
+                "cacheCreationInputTokens": 0
+              }
+            }
+          },
+          "namedScores": {
+            "no-pii": 6,
+            "correct": 8
+          },
+          "namedScoresCount": {
+            "no-pii": 9,
+            "correct": 9
+          },
+          "namedScoreWeights": {
+            "no-pii": 9,
+            "correct": 9
+          },
+          "cost": 0.0036000000000000008
+        }
+      }
+    ],
+    "results": [
+      {
+        "cost": 0.0004,
+        "error": "Expected output to not contain \"@\"",
+        "gradingResult": {
+          "pass": false,
+          "score": 0.5,
+          "reason": "Expected output to not contain \"@\"",
+          "namedScores": {
+            "no-pii": 0,
+            "correct": 1
+          },
+          "namedScoreWeights": {
+            "no-pii": 1,
+            "correct": 1
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": false,
+              "score": 0,
+              "reason": "Expected output to not contain \"@\"",
+              "assertion": {
+                "type": "not-contains",
+                "value": "@",
+                "metric": "no-pii"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "contains",
+                "value": "30 days",
+                "metric": "correct"
+              }
+            }
+          ]
+        },
+        "id": "f43e4d9a-1a7a-4cbd-82a8-8e9312e7a449",
+        "latencyMs": 120,
+        "namedScores": {
+          "no-pii": 0,
+          "correct": 1
+        },
+        "prompt": {
+          "raw": "Q: what is the refund window",
+          "label": "Q: {{question}}",
+          "config": {}
+        },
+        "promptId": "2e242abfa9406863270b2b0e5dc36189bce5755778c0e4e24811fddd0642131d",
+        "promptIdx": 1,
+        "provider": {
+          "id": "local:after",
+          "label": "after"
+        },
+        "response": {
+          "output": "Answer: 30 days contact jane@example.com",
+          "cost": 0.0004,
+          "latencyMs": 120
+        },
+        "score": 0.5,
+        "success": false,
+        "testCase": {
+          "description": "refund-policy",
+          "vars": {
+            "question": "what is the refund window",
+            "expected": "30 days"
+          },
+          "assert": [
+            {
+              "type": "not-contains",
+              "value": "@",
+              "metric": "no-pii"
+            },
+            {
+              "type": "contains",
+              "value": "30 days",
+              "metric": "correct"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 0,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "question": "what is the refund window",
+          "expected": "30 days"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 1
+      },
+      {
+        "cost": 0.001,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {
+            "no-pii": 1,
+            "correct": 1
+          },
+          "namedScoreWeights": {
+            "no-pii": 1,
+            "correct": 1
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "not-contains",
+                "value": "@",
+                "metric": "no-pii"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "contains",
+                "value": "30 days",
+                "metric": "correct"
+              }
+            }
+          ]
+        },
+        "id": "41e86266-e9f4-427e-bd93-396288b925ca",
+        "latencyMs": 300,
+        "namedScores": {
+          "no-pii": 1,
+          "correct": 1
+        },
+        "prompt": {
+          "raw": "Q: what is the refund window",
+          "label": "Q: {{question}}",
+          "config": {}
+        },
+        "promptId": "2e242abfa9406863270b2b0e5dc36189bce5755778c0e4e24811fddd0642131d",
+        "promptIdx": 0,
+        "provider": {
+          "id": "local:before",
+          "label": "before"
+        },
+        "response": {
+          "output": "Answer: 30 days",
+          "cost": 0.001,
+          "latencyMs": 300
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "refund-policy",
+          "vars": {
+            "question": "what is the refund window",
+            "expected": "30 days"
+          },
+          "assert": [
+            {
+              "type": "not-contains",
+              "value": "@",
+              "metric": "no-pii"
+            },
+            {
+              "type": "contains",
+              "value": "30 days",
+              "metric": "correct"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 0,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "question": "what is the refund window",
+          "expected": "30 days"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0.0004,
+        "error": "Expected output to not contain \"@\"",
+        "gradingResult": {
+          "pass": false,
+          "score": 0.5,
+          "reason": "Expected output to not contain \"@\"",
+          "namedScores": {
+            "no-pii": 0,
+            "correct": 1
+          },
+          "namedScoreWeights": {
+            "no-pii": 1,
+            "correct": 1
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": false,
+              "score": 0,
+              "reason": "Expected output to not contain \"@\"",
+              "assertion": {
+                "type": "not-contains",
+                "value": "@",
+                "metric": "no-pii"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "contains",
+                "value": "30 days",
+                "metric": "correct"
+              }
+            }
+          ]
+        },
+        "id": "e8a0370a-9550-4c1c-a342-a7c1b4933d97",
+        "latencyMs": 120,
+        "namedScores": {
+          "no-pii": 0,
+          "correct": 1
+        },
+        "prompt": {
+          "raw": "Q: what is the refund window",
+          "label": "Q: {{question}}",
+          "config": {}
+        },
+        "promptId": "2e242abfa9406863270b2b0e5dc36189bce5755778c0e4e24811fddd0642131d",
+        "promptIdx": 1,
+        "provider": {
+          "id": "local:after",
+          "label": "after"
+        },
+        "response": {
+          "output": "Answer: 30 days contact jane@example.com",
+          "cost": 0.0004,
+          "latencyMs": 120
+        },
+        "score": 0.5,
+        "success": false,
+        "testCase": {
+          "description": "refund-policy",
+          "vars": {
+            "question": "what is the refund window",
+            "expected": "30 days"
+          },
+          "assert": [
+            {
+              "type": "not-contains",
+              "value": "@",
+              "metric": "no-pii"
+            },
+            {
+              "type": "contains",
+              "value": "30 days",
+              "metric": "correct"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 1,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "question": "what is the refund window",
+          "expected": "30 days"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 1
+      },
+      {
+        "cost": 0.001,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {
+            "no-pii": 1,
+            "correct": 1
+          },
+          "namedScoreWeights": {
+            "no-pii": 1,
+            "correct": 1
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "not-contains",
+                "value": "@",
+                "metric": "no-pii"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "contains",
+                "value": "30 days",
+                "metric": "correct"
+              }
+            }
+          ]
+        },
+        "id": "6180b1cf-30c3-42fc-8e52-4062486f1370",
+        "latencyMs": 300,
+        "namedScores": {
+          "no-pii": 1,
+          "correct": 1
+        },
+        "prompt": {
+          "raw": "Q: what is the refund window",
+          "label": "Q: {{question}}",
+          "config": {}
+        },
+        "promptId": "2e242abfa9406863270b2b0e5dc36189bce5755778c0e4e24811fddd0642131d",
+        "promptIdx": 0,
+        "provider": {
+          "id": "local:before",
+          "label": "before"
+        },
+        "response": {
+          "output": "Answer: 30 days",
+          "cost": 0.001,
+          "latencyMs": 300
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "refund-policy",
+          "vars": {
+            "question": "what is the refund window",
+            "expected": "30 days"
+          },
+          "assert": [
+            {
+              "type": "not-contains",
+              "value": "@",
+              "metric": "no-pii"
+            },
+            {
+              "type": "contains",
+              "value": "30 days",
+              "metric": "correct"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 1,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "question": "what is the refund window",
+          "expected": "30 days"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0.0004,
+        "error": "Expected output to not contain \"@\"",
+        "gradingResult": {
+          "pass": false,
+          "score": 0.5,
+          "reason": "Expected output to not contain \"@\"",
+          "namedScores": {
+            "no-pii": 0,
+            "correct": 1
+          },
+          "namedScoreWeights": {
+            "no-pii": 1,
+            "correct": 1
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": false,
+              "score": 0,
+              "reason": "Expected output to not contain \"@\"",
+              "assertion": {
+                "type": "not-contains",
+                "value": "@",
+                "metric": "no-pii"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "contains",
+                "value": "30 days",
+                "metric": "correct"
+              }
+            }
+          ]
+        },
+        "id": "055fcc46-319a-49e2-a5a0-d4bead8a2f0f",
+        "latencyMs": 120,
+        "namedScores": {
+          "no-pii": 0,
+          "correct": 1
+        },
+        "prompt": {
+          "raw": "Q: what is the refund window",
+          "label": "Q: {{question}}",
+          "config": {}
+        },
+        "promptId": "2e242abfa9406863270b2b0e5dc36189bce5755778c0e4e24811fddd0642131d",
+        "promptIdx": 1,
+        "provider": {
+          "id": "local:after",
+          "label": "after"
+        },
+        "response": {
+          "output": "Answer: 30 days contact jane@example.com",
+          "cost": 0.0004,
+          "latencyMs": 120
+        },
+        "score": 0.5,
+        "success": false,
+        "testCase": {
+          "description": "refund-policy",
+          "vars": {
+            "question": "what is the refund window",
+            "expected": "30 days"
+          },
+          "assert": [
+            {
+              "type": "not-contains",
+              "value": "@",
+              "metric": "no-pii"
+            },
+            {
+              "type": "contains",
+              "value": "30 days",
+              "metric": "correct"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 2,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "question": "what is the refund window",
+          "expected": "30 days"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 1
+      },
+      {
+        "cost": 0.001,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {
+            "no-pii": 1,
+            "correct": 1
+          },
+          "namedScoreWeights": {
+            "no-pii": 1,
+            "correct": 1
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "not-contains",
+                "value": "@",
+                "metric": "no-pii"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "contains",
+                "value": "30 days",
+                "metric": "correct"
+              }
+            }
+          ]
+        },
+        "id": "963dad2e-fa6d-4c86-a143-95a85e842e8a",
+        "latencyMs": 300,
+        "namedScores": {
+          "no-pii": 1,
+          "correct": 1
+        },
+        "prompt": {
+          "raw": "Q: what is the refund window",
+          "label": "Q: {{question}}",
+          "config": {}
+        },
+        "promptId": "2e242abfa9406863270b2b0e5dc36189bce5755778c0e4e24811fddd0642131d",
+        "promptIdx": 0,
+        "provider": {
+          "id": "local:before",
+          "label": "before"
+        },
+        "response": {
+          "output": "Answer: 30 days",
+          "cost": 0.001,
+          "latencyMs": 300
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "refund-policy",
+          "vars": {
+            "question": "what is the refund window",
+            "expected": "30 days"
+          },
+          "assert": [
+            {
+              "type": "not-contains",
+              "value": "@",
+              "metric": "no-pii"
+            },
+            {
+              "type": "contains",
+              "value": "30 days",
+              "metric": "correct"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 2,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "question": "what is the refund window",
+          "expected": "30 days"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0.001,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {
+            "no-pii": 1,
+            "correct": 1
+          },
+          "namedScoreWeights": {
+            "no-pii": 1,
+            "correct": 1
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "not-contains",
+                "value": "@",
+                "metric": "no-pii"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "contains",
+                "value": "sunny",
+                "metric": "correct"
+              }
+            }
+          ]
+        },
+        "id": "6f965f2c-3ff0-4038-b2c3-63007d0a9fff",
+        "latencyMs": 300,
+        "namedScores": {
+          "no-pii": 1,
+          "correct": 1
+        },
+        "prompt": {
+          "raw": "Q: weather tomorrow",
+          "label": "Q: {{question}}",
+          "config": {}
+        },
+        "promptId": "2e242abfa9406863270b2b0e5dc36189bce5755778c0e4e24811fddd0642131d",
+        "promptIdx": 0,
+        "provider": {
+          "id": "local:before",
+          "label": "before"
+        },
+        "response": {
+          "output": "Answer: sunny",
+          "cost": 0.001,
+          "latencyMs": 300
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "weather",
+          "vars": {
+            "question": "weather tomorrow",
+            "expected": "sunny"
+          },
+          "assert": [
+            {
+              "type": "not-contains",
+              "value": "@",
+              "metric": "no-pii"
+            },
+            {
+              "type": "contains",
+              "value": "sunny",
+              "metric": "correct"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 3,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "question": "weather tomorrow",
+          "expected": "sunny"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0.0004,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {
+            "no-pii": 1,
+            "correct": 1
+          },
+          "namedScoreWeights": {
+            "no-pii": 1,
+            "correct": 1
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "not-contains",
+                "value": "@",
+                "metric": "no-pii"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "contains",
+                "value": "sunny",
+                "metric": "correct"
+              }
+            }
+          ]
+        },
+        "id": "b0cc187f-ce97-4b5a-ade7-2d5d4d15f37a",
+        "latencyMs": 120,
+        "namedScores": {
+          "no-pii": 1,
+          "correct": 1
+        },
+        "prompt": {
+          "raw": "Q: weather tomorrow",
+          "label": "Q: {{question}}",
+          "config": {}
+        },
+        "promptId": "2e242abfa9406863270b2b0e5dc36189bce5755778c0e4e24811fddd0642131d",
+        "promptIdx": 1,
+        "provider": {
+          "id": "local:after",
+          "label": "after"
+        },
+        "response": {
+          "output": "Answer: sunny",
+          "cost": 0.0004,
+          "latencyMs": 120
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "weather",
+          "vars": {
+            "question": "weather tomorrow",
+            "expected": "sunny"
+          },
+          "assert": [
+            {
+              "type": "not-contains",
+              "value": "@",
+              "metric": "no-pii"
+            },
+            {
+              "type": "contains",
+              "value": "sunny",
+              "metric": "correct"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 3,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "question": "weather tomorrow",
+          "expected": "sunny"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0.0004,
+        "error": "Expected output to contain \"sunny\"",
+        "gradingResult": {
+          "pass": false,
+          "score": 0.5,
+          "reason": "Expected output to contain \"sunny\"",
+          "namedScores": {
+            "no-pii": 1,
+            "correct": 0
+          },
+          "namedScoreWeights": {
+            "no-pii": 1,
+            "correct": 1
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "not-contains",
+                "value": "@",
+                "metric": "no-pii"
+              }
+            },
+            {
+              "pass": false,
+              "score": 0,
+              "reason": "Expected output to contain \"sunny\"",
+              "assertion": {
+                "type": "contains",
+                "value": "sunny",
+                "metric": "correct"
+              }
+            }
+          ]
+        },
+        "id": "9c89cab1-c715-41cb-9547-8bb43adcc059",
+        "latencyMs": 120,
+        "namedScores": {
+          "no-pii": 1,
+          "correct": 0
+        },
+        "prompt": {
+          "raw": "Q: weather tomorrow",
+          "label": "Q: {{question}}",
+          "config": {}
+        },
+        "promptId": "2e242abfa9406863270b2b0e5dc36189bce5755778c0e4e24811fddd0642131d",
+        "promptIdx": 1,
+        "provider": {
+          "id": "local:after",
+          "label": "after"
+        },
+        "response": {
+          "output": "Answer: unsure",
+          "cost": 0.0004,
+          "latencyMs": 120
+        },
+        "score": 0.5,
+        "success": false,
+        "testCase": {
+          "description": "weather",
+          "vars": {
+            "question": "weather tomorrow",
+            "expected": "sunny"
+          },
+          "assert": [
+            {
+              "type": "not-contains",
+              "value": "@",
+              "metric": "no-pii"
+            },
+            {
+              "type": "contains",
+              "value": "sunny",
+              "metric": "correct"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 4,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "question": "weather tomorrow",
+          "expected": "sunny"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 1
+      },
+      {
+        "cost": 0.001,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {
+            "no-pii": 1,
+            "correct": 1
+          },
+          "namedScoreWeights": {
+            "no-pii": 1,
+            "correct": 1
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "not-contains",
+                "value": "@",
+                "metric": "no-pii"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "contains",
+                "value": "sunny",
+                "metric": "correct"
+              }
+            }
+          ]
+        },
+        "id": "88821b16-9f30-40c8-81cb-9d8b3e241207",
+        "latencyMs": 300,
+        "namedScores": {
+          "no-pii": 1,
+          "correct": 1
+        },
+        "prompt": {
+          "raw": "Q: weather tomorrow",
+          "label": "Q: {{question}}",
+          "config": {}
+        },
+        "promptId": "2e242abfa9406863270b2b0e5dc36189bce5755778c0e4e24811fddd0642131d",
+        "promptIdx": 0,
+        "provider": {
+          "id": "local:before",
+          "label": "before"
+        },
+        "response": {
+          "output": "Answer: sunny",
+          "cost": 0.001,
+          "latencyMs": 300
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "weather",
+          "vars": {
+            "question": "weather tomorrow",
+            "expected": "sunny"
+          },
+          "assert": [
+            {
+              "type": "not-contains",
+              "value": "@",
+              "metric": "no-pii"
+            },
+            {
+              "type": "contains",
+              "value": "sunny",
+              "metric": "correct"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 4,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "question": "weather tomorrow",
+          "expected": "sunny"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0.001,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {
+            "no-pii": 1,
+            "correct": 1
+          },
+          "namedScoreWeights": {
+            "no-pii": 1,
+            "correct": 1
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "not-contains",
+                "value": "@",
+                "metric": "no-pii"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "contains",
+                "value": "sunny",
+                "metric": "correct"
+              }
+            }
+          ]
+        },
+        "id": "753e2fe1-815d-4196-83c2-5881bfa0a3bf",
+        "latencyMs": 300,
+        "namedScores": {
+          "no-pii": 1,
+          "correct": 1
+        },
+        "prompt": {
+          "raw": "Q: weather tomorrow",
+          "label": "Q: {{question}}",
+          "config": {}
+        },
+        "promptId": "2e242abfa9406863270b2b0e5dc36189bce5755778c0e4e24811fddd0642131d",
+        "promptIdx": 0,
+        "provider": {
+          "id": "local:before",
+          "label": "before"
+        },
+        "response": {
+          "output": "Answer: sunny",
+          "cost": 0.001,
+          "latencyMs": 300
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "weather",
+          "vars": {
+            "question": "weather tomorrow",
+            "expected": "sunny"
+          },
+          "assert": [
+            {
+              "type": "not-contains",
+              "value": "@",
+              "metric": "no-pii"
+            },
+            {
+              "type": "contains",
+              "value": "sunny",
+              "metric": "correct"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 5,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "question": "weather tomorrow",
+          "expected": "sunny"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0.0004,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {
+            "no-pii": 1,
+            "correct": 1
+          },
+          "namedScoreWeights": {
+            "no-pii": 1,
+            "correct": 1
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "not-contains",
+                "value": "@",
+                "metric": "no-pii"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "contains",
+                "value": "sunny",
+                "metric": "correct"
+              }
+            }
+          ]
+        },
+        "id": "3c3237ab-fdf0-4a14-952d-ac4930279e58",
+        "latencyMs": 120,
+        "namedScores": {
+          "no-pii": 1,
+          "correct": 1
+        },
+        "prompt": {
+          "raw": "Q: weather tomorrow",
+          "label": "Q: {{question}}",
+          "config": {}
+        },
+        "promptId": "2e242abfa9406863270b2b0e5dc36189bce5755778c0e4e24811fddd0642131d",
+        "promptIdx": 1,
+        "provider": {
+          "id": "local:after",
+          "label": "after"
+        },
+        "response": {
+          "output": "Answer: sunny",
+          "cost": 0.0004,
+          "latencyMs": 120
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "weather",
+          "vars": {
+            "question": "weather tomorrow",
+            "expected": "sunny"
+          },
+          "assert": [
+            {
+              "type": "not-contains",
+              "value": "@",
+              "metric": "no-pii"
+            },
+            {
+              "type": "contains",
+              "value": "sunny",
+              "metric": "correct"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 5,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "question": "weather tomorrow",
+          "expected": "sunny"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0.001,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {
+            "no-pii": 1,
+            "correct": 1
+          },
+          "namedScoreWeights": {
+            "no-pii": 1,
+            "correct": 1
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "not-contains",
+                "value": "@",
+                "metric": "no-pii"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "contains",
+                "value": "Paris",
+                "metric": "correct"
+              }
+            }
+          ]
+        },
+        "id": "4a5aac5c-e6ce-41b3-9e22-a02d4c0d2cb7",
+        "latencyMs": 300,
+        "namedScores": {
+          "no-pii": 1,
+          "correct": 1
+        },
+        "prompt": {
+          "raw": "Q: capital of France",
+          "label": "Q: {{question}}",
+          "config": {}
+        },
+        "promptId": "2e242abfa9406863270b2b0e5dc36189bce5755778c0e4e24811fddd0642131d",
+        "promptIdx": 0,
+        "provider": {
+          "id": "local:before",
+          "label": "before"
+        },
+        "response": {
+          "output": "Answer: Paris",
+          "cost": 0.001,
+          "latencyMs": 300
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "vars": {
+            "question": "capital of France",
+            "expected": "Paris"
+          },
+          "assert": [
+            {
+              "type": "not-contains",
+              "value": "@",
+              "metric": "no-pii"
+            },
+            {
+              "type": "contains",
+              "value": "Paris",
+              "metric": "correct"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 6,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "question": "capital of France",
+          "expected": "Paris"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0.0004,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {
+            "no-pii": 1,
+            "correct": 1
+          },
+          "namedScoreWeights": {
+            "no-pii": 1,
+            "correct": 1
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "not-contains",
+                "value": "@",
+                "metric": "no-pii"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "contains",
+                "value": "Paris",
+                "metric": "correct"
+              }
+            }
+          ]
+        },
+        "id": "9c34f023-6405-4776-a30a-451408453d0a",
+        "latencyMs": 120,
+        "namedScores": {
+          "no-pii": 1,
+          "correct": 1
+        },
+        "prompt": {
+          "raw": "Q: capital of France",
+          "label": "Q: {{question}}",
+          "config": {}
+        },
+        "promptId": "2e242abfa9406863270b2b0e5dc36189bce5755778c0e4e24811fddd0642131d",
+        "promptIdx": 1,
+        "provider": {
+          "id": "local:after",
+          "label": "after"
+        },
+        "response": {
+          "output": "Answer: Paris",
+          "cost": 0.0004,
+          "latencyMs": 120
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "vars": {
+            "question": "capital of France",
+            "expected": "Paris"
+          },
+          "assert": [
+            {
+              "type": "not-contains",
+              "value": "@",
+              "metric": "no-pii"
+            },
+            {
+              "type": "contains",
+              "value": "Paris",
+              "metric": "correct"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 6,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "question": "capital of France",
+          "expected": "Paris"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0.001,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {
+            "no-pii": 1,
+            "correct": 1
+          },
+          "namedScoreWeights": {
+            "no-pii": 1,
+            "correct": 1
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "not-contains",
+                "value": "@",
+                "metric": "no-pii"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "contains",
+                "value": "Paris",
+                "metric": "correct"
+              }
+            }
+          ]
+        },
+        "id": "76153023-c7f1-410a-985e-249942d8d716",
+        "latencyMs": 300,
+        "namedScores": {
+          "no-pii": 1,
+          "correct": 1
+        },
+        "prompt": {
+          "raw": "Q: capital of France",
+          "label": "Q: {{question}}",
+          "config": {}
+        },
+        "promptId": "2e242abfa9406863270b2b0e5dc36189bce5755778c0e4e24811fddd0642131d",
+        "promptIdx": 0,
+        "provider": {
+          "id": "local:before",
+          "label": "before"
+        },
+        "response": {
+          "output": "Answer: Paris",
+          "cost": 0.001,
+          "latencyMs": 300
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "vars": {
+            "question": "capital of France",
+            "expected": "Paris"
+          },
+          "assert": [
+            {
+              "type": "not-contains",
+              "value": "@",
+              "metric": "no-pii"
+            },
+            {
+              "type": "contains",
+              "value": "Paris",
+              "metric": "correct"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 7,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "question": "capital of France",
+          "expected": "Paris"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0.0004,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {
+            "no-pii": 1,
+            "correct": 1
+          },
+          "namedScoreWeights": {
+            "no-pii": 1,
+            "correct": 1
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "not-contains",
+                "value": "@",
+                "metric": "no-pii"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "contains",
+                "value": "Paris",
+                "metric": "correct"
+              }
+            }
+          ]
+        },
+        "id": "2a70604f-5dec-4a13-8135-c4a9c4f90b35",
+        "latencyMs": 120,
+        "namedScores": {
+          "no-pii": 1,
+          "correct": 1
+        },
+        "prompt": {
+          "raw": "Q: capital of France",
+          "label": "Q: {{question}}",
+          "config": {}
+        },
+        "promptId": "2e242abfa9406863270b2b0e5dc36189bce5755778c0e4e24811fddd0642131d",
+        "promptIdx": 1,
+        "provider": {
+          "id": "local:after",
+          "label": "after"
+        },
+        "response": {
+          "output": "Answer: Paris",
+          "cost": 0.0004,
+          "latencyMs": 120
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "vars": {
+            "question": "capital of France",
+            "expected": "Paris"
+          },
+          "assert": [
+            {
+              "type": "not-contains",
+              "value": "@",
+              "metric": "no-pii"
+            },
+            {
+              "type": "contains",
+              "value": "Paris",
+              "metric": "correct"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 7,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "question": "capital of France",
+          "expected": "Paris"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0.001,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {
+            "no-pii": 1,
+            "correct": 1
+          },
+          "namedScoreWeights": {
+            "no-pii": 1,
+            "correct": 1
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "not-contains",
+                "value": "@",
+                "metric": "no-pii"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "contains",
+                "value": "Paris",
+                "metric": "correct"
+              }
+            }
+          ]
+        },
+        "id": "b0508d3a-d8ee-4888-98f2-b2f37c29d5df",
+        "latencyMs": 300,
+        "namedScores": {
+          "no-pii": 1,
+          "correct": 1
+        },
+        "prompt": {
+          "raw": "Q: capital of France",
+          "label": "Q: {{question}}",
+          "config": {}
+        },
+        "promptId": "2e242abfa9406863270b2b0e5dc36189bce5755778c0e4e24811fddd0642131d",
+        "promptIdx": 0,
+        "provider": {
+          "id": "local:before",
+          "label": "before"
+        },
+        "response": {
+          "output": "Answer: Paris",
+          "cost": 0.001,
+          "latencyMs": 300
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "vars": {
+            "question": "capital of France",
+            "expected": "Paris"
+          },
+          "assert": [
+            {
+              "type": "not-contains",
+              "value": "@",
+              "metric": "no-pii"
+            },
+            {
+              "type": "contains",
+              "value": "Paris",
+              "metric": "correct"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 8,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "question": "capital of France",
+          "expected": "Paris"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0.0004,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {
+            "no-pii": 1,
+            "correct": 1
+          },
+          "namedScoreWeights": {
+            "no-pii": 1,
+            "correct": 1
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "not-contains",
+                "value": "@",
+                "metric": "no-pii"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "contains",
+                "value": "Paris",
+                "metric": "correct"
+              }
+            }
+          ]
+        },
+        "id": "b26e7b6b-be95-4a88-85a6-585b918da657",
+        "latencyMs": 120,
+        "namedScores": {
+          "no-pii": 1,
+          "correct": 1
+        },
+        "prompt": {
+          "raw": "Q: capital of France",
+          "label": "Q: {{question}}",
+          "config": {}
+        },
+        "promptId": "2e242abfa9406863270b2b0e5dc36189bce5755778c0e4e24811fddd0642131d",
+        "promptIdx": 1,
+        "provider": {
+          "id": "local:after",
+          "label": "after"
+        },
+        "response": {
+          "output": "Answer: Paris",
+          "cost": 0.0004,
+          "latencyMs": 120
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "vars": {
+            "question": "capital of France",
+            "expected": "Paris"
+          },
+          "assert": [
+            {
+              "type": "not-contains",
+              "value": "@",
+              "metric": "no-pii"
+            },
+            {
+              "type": "contains",
+              "value": "Paris",
+              "metric": "correct"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 8,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "question": "capital of France",
+          "expected": "Paris"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      }
+    ],
+    "stats": {
+      "successes": 14,
+      "failures": 4,
+      "errors": 0,
+      "tokenUsage": {
+        "prompt": 0,
+        "completion": 0,
+        "cached": 0,
+        "total": 0,
+        "numRequests": 18,
+        "completionDetails": {
+          "reasoning": 0,
+          "acceptedPrediction": 0,
+          "rejectedPrediction": 0,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0
+        },
+        "assertions": {
+          "total": 0,
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "numRequests": 0,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          }
+        }
+      },
+      "durationMs": 113,
+      "evaluationDurationMs": 113
+    }
+  },
+  "config": {
+    "tags": {},
+    "description": "swapcheck adapter fixture",
+    "prompts": [
+      "Q: {{question}}"
+    ],
+    "providers": [
+      {
+        "id": "file://echo_provider.js",
+        "label": "before",
+        "config": {
+          "variant": "before"
+        }
+      },
+      {
+        "id": "file://echo_provider.js",
+        "label": "after",
+        "config": {
+          "variant": "after"
+        }
+      }
+    ],
+    "tests": [
+      {
+        "description": "refund-policy",
+        "vars": {
+          "question": "what is the refund window",
+          "expected": "30 days"
+        },
+        "assert": [
+          {
+            "type": "contains",
+            "value": "30 days",
+            "metric": "correct"
+          }
+        ]
+      },
+      {
+        "description": "weather",
+        "vars": {
+          "question": "weather tomorrow",
+          "expected": "sunny"
+        },
+        "assert": [
+          {
+            "type": "contains",
+            "value": "sunny",
+            "metric": "correct"
+          }
+        ]
+      },
+      {
+        "vars": {
+          "question": "capital of France",
+          "expected": "Paris"
+        },
+        "assert": [
+          {
+            "type": "contains",
+            "value": "Paris",
+            "metric": "correct"
+          }
+        ]
+      }
+    ],
+    "env": {},
+    "sharing": false,
+    "defaultTest": {
+      "assert": [
+        {
+          "type": "not-contains",
+          "value": "@",
+          "metric": "no-pii"
+        }
+      ],
+      "vars": {},
+      "options": {},
+      "metadata": {}
+    },
+    "outputPath": [
+      "results.json"
+    ],
+    "extensions": [],
+    "metadata": {},
+    "evaluateOptions": {}
+  },
+  "shareableUrl": null,
+  "metadata": {
+    "promptfooVersion": "0.123.1",
+    "nodeVersion": "v22.22.2",
+    "platform": "linux",
+    "arch": "x64",
+    "exportedAt": "2026-10-04T04:49:04.397Z",
+    "evaluationCreatedAt": "2026-10-04T04:49:04.225Z"
+  },
+  "vars": [
+    "question",
+    "expected"
+  ],
+  "runtimeOptions": {
+    "eventSource": "cli",
+    "showProgressBar": false,
+    "repeat": 3,
+    "maxConcurrency": 4,
+    "cache": false
+  }
+}

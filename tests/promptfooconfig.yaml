@@ -1,0 +1,33 @@
+description: swapcheck adapter fixture
+prompts:
+  - 'Q: {{question}}'
+providers:
+  - id: file://echo_provider.js
+    label: before
+    config: {variant: before}
+  - id: file://echo_provider.js
+    label: after
+    config: {variant: after}
+defaultTest:
+  assert:
+    - type: not-contains
+      value: '@'
+      metric: no-pii
+tests:
+  - description: refund-policy
+    vars: {question: 'what is the refund window', expected: '30 days'}
+    assert:
+      - type: contains
+        value: '30 days'
+        metric: correct
+  - description: weather
+    vars: {question: 'weather tomorrow', expected: 'sunny'}
+    assert:
+      - type: contains
+        value: 'sunny'
+        metric: correct
+  - vars: {question: 'capital of France', expected: 'Paris'}
+    assert:
+      - type: contains
+        value: 'Paris'
+        metric: correct
