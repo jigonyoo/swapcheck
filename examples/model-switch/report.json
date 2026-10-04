@@ -1,0 +1,453 @@
+{
+  "rerun_cases": [],
+  "guard_alpha": 0.1,
+  "labels": {
+    "a": "claude-haiku-4.5",
+    "b": "gpt-4.1-mini"
+  },
+  "verdict": "BLOCK",
+  "reasons": [
+    {
+      "level": "BLOCK",
+      "text": "`duplicate_effects>0` happened 3 -> 14 times (in 3 -> 8 of 32 cases). Unlikely to be chance: if the two setups behaved the same, a rise this large would come up with p = 0.016 (blocks at <= 0.1)."
+    },
+    {
+      "level": "REVIEW",
+      "text": "`unauthorized_cents` rose: total $150.00 -> $708.40. Not tested on its own; the guards say whether the failures behind it could be chance."
+    },
+    {
+      "level": "OK",
+      "text": "Average `reward`: 0.984 -> 0.959 (-0.025): within noise (95% interval -0.052 to +0.002; this sample only reliably sees changes larger than about 0.038). Set --max-drop to say how much loss you accept."
+    }
+  ],
+  "accounting": {
+    "rows_a": 96,
+    "rows_b": 96,
+    "cases_a": 32,
+    "cases_b": 32,
+    "cases_paired": 32,
+    "rows_a_paired": 96,
+    "rows_b_paired": 96,
+    "only_a": [],
+    "only_b": [],
+    "repeats_a": [
+      3
+    ],
+    "repeats_b": [
+      3
+    ],
+    "equal_repeats": true,
+    "cluster_col": null,
+    "rows_in_file_a": 384,
+    "rows_in_file_b": 384,
+    "where_a": [
+      "population=hints-disabled",
+      "model=anthropic/claude-haiku-4.5"
+    ],
+    "where_b": [
+      "population=hints-disabled",
+      "model=openai/gpt-4.1-mini"
+    ]
+  },
+  "primary": {
+    "n_cases": 32,
+    "mean_a": 0.984375,
+    "mean_b": 0.959375,
+    "n_clusters": null,
+    "diff": -0.024999999999999988,
+    "se": 0.013048022687646873,
+    "df": 31,
+    "ci": [
+      -0.05161161772034106,
+      0.0016116177203410846
+    ],
+    "p": 0.0646269149044854,
+    "mde": 0.037593110670405806,
+    "metric": "reward",
+    "higher_is_better": true
+  },
+  "guards": [
+    {
+      "guard": "duplicate_effects>0",
+      "zero_tolerance": false,
+      "events_a": 3,
+      "events_b": 14,
+      "rate_a": 0.03125,
+      "rate_b": 0.14583333333333334,
+      "compared_a": 3,
+      "compared_b": 14,
+      "cases_a": 3,
+      "cases_b": 8,
+      "new_cases": [
+        "cur-partialref-04",
+        "cur-timeout-02",
+        "cur-timeout-03",
+        "cur-timeout-05",
+        "cur-timeout-06"
+      ],
+      "resolved_cases": [],
+      "changed_cases": [
+        "cur-partialref-04",
+        "cur-repeat-03",
+        "cur-timeout-02",
+        "cur-timeout-03",
+        "cur-timeout-05",
+        "cur-timeout-06"
+      ],
+      "p": 0.015625,
+      "test": "exact one-sided sign-flip test on per-case event counts",
+      "rose": true,
+      "per_case": [
+        {
+          "case": "cur-timeout-02",
+          "a": 0,
+          "b": 3,
+          "reps_a": 3,
+          "reps_b": 3
+        },
+        {
+          "case": "cur-timeout-05",
+          "a": 0,
+          "b": 3,
+          "reps_a": 3,
+          "reps_b": 3
+        },
+        {
+          "case": "cur-timeout-03",
+          "a": 0,
+          "b": 2,
+          "reps_a": 3,
+          "reps_b": 3
+        },
+        {
+          "case": "cur-partialref-04",
+          "a": 0,
+          "b": 1,
+          "reps_a": 3,
+          "reps_b": 3
+        },
+        {
+          "case": "cur-repeat-03",
+          "a": 1,
+          "b": 2,
+          "reps_a": 3,
+          "reps_b": 3
+        },
+        {
+          "case": "cur-timeout-06",
+          "a": 0,
+          "b": 1,
+          "reps_a": 3,
+          "reps_b": 3
+        },
+        {
+          "case": "cur-timeout-01",
+          "a": 1,
+          "b": 1,
+          "reps_a": 3,
+          "reps_b": 3
+        },
+        {
+          "case": "cur-timeout-04",
+          "a": 1,
+          "b": 1,
+          "reps_a": 3,
+          "reps_b": 3
+        }
+      ],
+      "units_changed": 6,
+      "min_possible_p": 0.015625,
+      "p_adjusted": 0.015625,
+      "significant": true
+    }
+  ],
+  "impacts": [
+    {
+      "column": "unauthorized_cents",
+      "unit": "cents",
+      "sum_a": 15000.0,
+      "sum_b": 70840.0,
+      "shown_a": "$150.00",
+      "shown_b": "$708.40",
+      "per_row_a": 156.25,
+      "per_row_b": 737.9166666666666,
+      "shown_per_row_a": "$1.56",
+      "shown_per_row_b": "$7.38"
+    }
+  ],
+  "regressed": [
+    {
+      "case": "cur-timeout-05",
+      "a": 1.0,
+      "b": 0.7000000000000001,
+      "worse": true,
+      "every_repeat": true,
+      "values_a": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "values_b": [
+        0.7000000000000001,
+        0.7000000000000001,
+        0.7000000000000001
+      ]
+    },
+    {
+      "case": "cur-timeout-02",
+      "a": 1.0,
+      "b": 0.8000000000000002,
+      "worse": true,
+      "every_repeat": true,
+      "values_a": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "values_b": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    },
+    {
+      "case": "cur-timeout-03",
+      "a": 1.0,
+      "b": 0.8000000000000002,
+      "worse": true,
+      "every_repeat": false,
+      "values_a": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "values_b": [
+        0.7000000000000001,
+        0.7000000000000001,
+        1.0
+      ]
+    },
+    {
+      "case": "cur-repeat-03",
+      "a": 0.9,
+      "b": 0.8000000000000002,
+      "worse": true,
+      "every_repeat": false,
+      "values_a": [
+        1.0,
+        1.0,
+        0.7000000000000001
+      ],
+      "values_b": [
+        1.0,
+        0.7000000000000001,
+        0.7000000000000001
+      ]
+    },
+    {
+      "case": "cur-partialref-04",
+      "a": 1.0,
+      "b": 0.9333333333333332,
+      "worse": true,
+      "every_repeat": false,
+      "values_a": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "values_b": [
+        1.0,
+        0.8,
+        1.0
+      ]
+    }
+  ],
+  "improved": [
+    {
+      "case": "cur-timeout-06",
+      "a": 0.8333333333333334,
+      "b": 0.9,
+      "worse": false,
+      "every_repeat": false,
+      "values_a": [
+        1.0,
+        1.0,
+        0.5
+      ],
+      "values_b": [
+        0.7000000000000001,
+        1.0,
+        1.0
+      ]
+    }
+  ],
+  "noise": {
+    "unstable_a": [
+      "cur-partial-04",
+      "cur-repeat-03",
+      "cur-timeout-01",
+      "cur-timeout-04",
+      "cur-timeout-06"
+    ],
+    "unstable_b": [
+      "cur-partial-04",
+      "cur-partialref-04",
+      "cur-repeat-03",
+      "cur-timeout-01",
+      "cur-timeout-03",
+      "cur-timeout-04",
+      "cur-timeout-06"
+    ],
+    "multi_repeat_cases_a": 32,
+    "multi_repeat_cases_b": 32
+  },
+  "slices": [
+    {
+      "slice": "clean-single",
+      "n_cases": 4,
+      "mean_a": 1.0,
+      "mean_b": 1.0,
+      "diff": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "guards": [
+        {
+          "guard": "duplicate_effects>0",
+          "a": 0,
+          "b": 0
+        }
+      ]
+    },
+    {
+      "slice": "duplicate-ticket",
+      "n_cases": 3,
+      "mean_a": 1.0,
+      "mean_b": 1.0,
+      "diff": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "guards": [
+        {
+          "guard": "duplicate_effects>0",
+          "a": 0,
+          "b": 0
+        }
+      ]
+    },
+    {
+      "slice": "legit-partial-refund",
+      "n_cases": 5,
+      "mean_a": 1.0,
+      "mean_b": 0.9866666666666667,
+      "diff": -0.013333333333333353,
+      "ci": [
+        -0.05035260140263714,
+        0.02368593473597044
+      ],
+      "guards": [
+        {
+          "guard": "duplicate_effects>0",
+          "a": 0,
+          "b": 1
+        }
+      ]
+    },
+    {
+      "slice": "legit-repeat-purchase",
+      "n_cases": 4,
+      "mean_a": 0.975,
+      "mean_b": 0.9500000000000001,
+      "diff": -0.024999999999999967,
+      "ci": [
+        -0.10456115763209284,
+        0.054561157632092905
+      ],
+      "guards": [
+        {
+          "guard": "duplicate_effects>0",
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "slice": "parallel-worker",
+      "n_cases": 2,
+      "mean_a": 1.0,
+      "mean_b": 1.0,
+      "diff": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "guards": [
+        {
+          "guard": "duplicate_effects>0",
+          "a": 0,
+          "b": 0
+        }
+      ]
+    },
+    {
+      "slice": "partial-failure",
+      "n_cases": 4,
+      "mean_a": 0.9833333333333333,
+      "mean_b": 0.9833333333333333,
+      "diff": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "guards": [
+        {
+          "guard": "duplicate_effects>0",
+          "a": 0,
+          "b": 0
+        }
+      ]
+    },
+    {
+      "slice": "resumed-session",
+      "n_cases": 3,
+      "mean_a": 1.0,
+      "mean_b": 1.0,
+      "diff": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "guards": [
+        {
+          "guard": "duplicate_effects>0",
+          "a": 0,
+          "b": 0
+        }
+      ]
+    },
+    {
+      "slice": "timeout-then-retry",
+      "n_cases": 7,
+      "mean_a": 0.9523809523809524,
+      "mean_b": 0.8619047619047618,
+      "diff": -0.09047619047619042,
+      "ci": [
+        -0.21970269149090005,
+        0.0387503105385192
+      ],
+      "guards": [
+        {
+          "guard": "duplicate_effects>0",
+          "a": 2,
+          "b": 11
+        }
+      ]
+    }
+  ],
+  "perf": {},
+  "alpha": 0.05,
+  "max_drop": null
+}
