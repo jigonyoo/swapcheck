@@ -1,0 +1,43 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        python: ["3.10", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: pip install -e ".[test]"
+      - run: pytest -q
+      - name: demo verdicts must stay BLOCK and REVIEW
+        run: |
+          swapcheck demo --out demo
+          python -c "import json; v=[json.load(open(f'demo/{s}/report.json'))['verdict'] for s in ('model-switch','hints-on')]; assert v == ['BLOCK','REVIEW'], v"
+  installed:
+    # what a user gets: a built wheel, not the source tree
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install build && python -m build --wheel --outdir dist .
+      - run: python -m venv /tmp/v && /tmp/v/bin/pip install dist/*.whl
+      - name: demo from the installed wheel, outside the checkout
+        run: |
+          cd /tmp && /tmp/v/bin/swapcheck demo --out /tmp/demo
+          test -s /tmp/demo/model-switch/report.md
+  crosscheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e ".[crosscheck]"
+      - run: pytest -q -rs tests/test_crosscheck.py
