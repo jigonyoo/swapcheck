@@ -379,3 +379,12 @@ def test_rounding_noise_is_no_change():
     res = compare(a, b, Options(metric="score"))
     assert res["primary"]["diff"] == 0.0 and res["primary"]["mde"] is None
     assert not res["regressed"] and not res["improved"] and res["verdict"] == "OK"
+
+
+def test_help_text_states_the_current_rule(capsys):
+    from swapcheck.cli import main
+    with pytest.raises(SystemExit):
+        main(["--help"])
+    out = " ".join(capsys.readouterr().out.split())
+    assert "rises by more than chance" in out
+    assert "went up" not in out
