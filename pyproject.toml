@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "swapcheck"
+version = "0.1.0"
+description = "Compare two recorded eval runs case by case before switching models or prompts, and block when a failure you care about goes up"
+requires-python = ">=3.10"
+dependencies = []
+license = "MIT"
+authors = [{name = "Jigon Yoo"}]
+readme = "README.md"
+keywords = ["llm", "evaluation", "regression", "promptfoo", "statistics"]
+
+[project.urls]
+Homepage = "https://github.com/jigonyoo/swapcheck"
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+crosscheck = ["pytest>=7", "scipy>=1.10", "errorbars==0.2.4"]
+
+[project.scripts]
+swapcheck = "swapcheck.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+swapcheck = ["data/*.jsonl"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra"
