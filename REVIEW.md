@@ -50,7 +50,7 @@ One more reviewer compared everything published under this name with the release
 | # | What was wrong | Fixed |
 |---|---|---|
 | 19 | The package summary (`pip show`) and the first paragraph of `swapcheck --help` still described the draft rule: block whenever a failure goes up. | Both now say a rise blocks when it is more than chance. A test checks the help text. |
-| 20 | The README called `unauthorized_cents` "money paid twice or over the cap". In the source data it is the whole order total once an order goes over the $50 cap without a human; a duplicate under $50 adds nothing to it. | Renamed "Paid over the $50 per-order cap without approval". |
+| 20 | The README called `unauthorized_cents` "money paid twice or over the cap". In the source data it is the whole order total once an order goes over the $50 cap without a human; a duplicate that leaves the order total at or under $50 adds nothing to it. | Renamed "Paid over the $50 per-order cap without approval". |
 | 21 | The CHANGELOG said "unreleased" after release. | Dated. |
 | 22 | This file said macOS was never checked. | It now says macOS was checked on GitHub Actions only. |
 
