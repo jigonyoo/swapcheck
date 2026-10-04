@@ -55,7 +55,7 @@ A fifth reviewer, new to the code, reproduced each row above on the old version,
 
 ## What was not checked
 
-- macOS and a real Windows machine. Windows was imitated with `PYTHONIOENCODING=cp1252`.
+- A physical Mac and a real Windows machine. macOS was checked only on GitHub Actions after publication (`macos-latest`, Python 3.10 and 3.13, all green in the first CI run). Windows was imitated with `PYTHONIOENCODING=cp1252`.
 - Regenerating the promptfoo fixture by running promptfoo again.
 - promptfoo versions other than 0.123.1.
 - The arXiv paper cited in the README, which was read only through a summarizing fetch tool.

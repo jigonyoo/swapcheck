@@ -1,8 +1,8 @@
 # Changelog
 
-## 0.1.0 — unreleased
+## 0.1.0 — 2026-10-04
 
-First version. Changes made before release, after independent review (details in [REVIEW.md](REVIEW.md)):
+First version, published 2026-10-04. Changes made before release, after independent review (details in [REVIEW.md](REVIEW.md)):
 
 - **A guard no longer blocks on any rise.** The first draft blocked whenever a guard's count went up. Run against itself (repeat *i* vs repeat *j* of the same model), the bundled data blocked 11 times in 24, and simulations blocked about 40% of the time with nothing changed. A rise now blocks when its one-sided exact p is at most `--guard-alpha` (0.10, Holm-adjusted across guards) and is REVIEW otherwise, with the cases to rerun listed. `--zero-tolerance` keeps the old rule for a failure that must never ship. `bench/guard_calibration.py` measures both rules.
 - **Unequal repeat counts no longer bias the guard test.** The draft compared per-case rates with a sign test; with 1 repeat before and 3 after it said "up" more often than its nominal level under no change. The test now uses the first *k* runs of each case on each side.

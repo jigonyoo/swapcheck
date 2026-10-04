@@ -17,7 +17,7 @@ Switching from `claude-haiku-4.5` to `gpt-4.1-mini`:
 | Average reward | 0.984 | 0.959 |
 | Runs with a duplicate payment | 3 | 14 |
 | Cases where that happened | 3 of 32 | 8 of 32 |
-| Money paid twice or over the cap, total | $150.00 | $708.40 |
+| Paid over the $50 per-order cap without approval, total | $150.00 | $708.40 |
 
 **Verdict: BLOCK.** The average alone would not have stopped this switch. It fell by 0.025, and the 95% interval runs from −0.052 to +0.002, so 32 cases cannot tell that drop from noise. The duplicate payments can: five cases started paying twice and none stopped. If the two models behaved the same, a rise that large would come up with a one-sided p of 0.016.
 
