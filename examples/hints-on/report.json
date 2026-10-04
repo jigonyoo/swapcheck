@@ -1,0 +1,403 @@
+{
+  "rerun_cases": [
+    "cur-repeat-03",
+    "cur-timeout-01",
+    "cur-timeout-05",
+    "cur-timeout-06"
+  ],
+  "guard_alpha": 0.1,
+  "labels": {
+    "a": "sonnet-4.5 hints-disabled",
+    "b": "sonnet-4.5 hints-enabled"
+  },
+  "verdict": "REVIEW",
+  "reasons": [
+    {
+      "level": "REVIEW",
+      "text": "`duplicate_effects>0` happened 3 -> 5 times (in 3 -> 2 of 32 cases). Could be chance: if the two setups behaved the same, a rise this large would still come up with p = 0.438. That is not evidence that nothing changed. Rerun the 4 case(s) that changed with more repeats: cur-repeat-03, cur-timeout-01, cur-timeout-05, cur-timeout-06."
+    },
+    {
+      "level": "REVIEW",
+      "text": "`unauthorized_cents` rose: total $205.00 -> $467.40. Not tested on its own; the guards say whether the failures behind it could be chance."
+    },
+    {
+      "level": "OK",
+      "text": "Average `reward`: 0.985 -> 0.984 (-0.001): within noise (95% interval -0.026 to +0.024; this sample only reliably sees changes larger than about 0.035). Set --max-drop to say how much loss you accept."
+    }
+  ],
+  "accounting": {
+    "rows_a": 96,
+    "rows_b": 96,
+    "cases_a": 32,
+    "cases_b": 32,
+    "cases_paired": 32,
+    "rows_a_paired": 96,
+    "rows_b_paired": 96,
+    "only_a": [],
+    "only_b": [],
+    "repeats_a": [
+      3
+    ],
+    "repeats_b": [
+      3
+    ],
+    "equal_repeats": true,
+    "cluster_col": null,
+    "rows_in_file_a": 384,
+    "rows_in_file_b": 384,
+    "where_a": [
+      "population=hints-disabled",
+      "model=anthropic/claude-sonnet-4.5"
+    ],
+    "where_b": [
+      "population=hints-enabled",
+      "model=anthropic/claude-sonnet-4.5"
+    ]
+  },
+  "primary": {
+    "n_cases": 32,
+    "mean_a": 0.9854166666666667,
+    "mean_b": 0.984375,
+    "n_clusters": null,
+    "diff": -0.001041666666666663,
+    "se": 0.01220387363954723,
+    "df": 31,
+    "ci": [
+      -0.02593163105264579,
+      0.023848297719312465
+    ],
+    "p": 0.9325277313925433,
+    "mde": 0.03516100357286284,
+    "metric": "reward",
+    "higher_is_better": true
+  },
+  "guards": [
+    {
+      "guard": "duplicate_effects>0",
+      "zero_tolerance": false,
+      "events_a": 3,
+      "events_b": 5,
+      "rate_a": 0.03125,
+      "rate_b": 0.052083333333333336,
+      "compared_a": 3,
+      "compared_b": 5,
+      "cases_a": 3,
+      "cases_b": 2,
+      "new_cases": [
+        "cur-timeout-05"
+      ],
+      "resolved_cases": [
+        "cur-repeat-03",
+        "cur-timeout-06"
+      ],
+      "changed_cases": [
+        "cur-repeat-03",
+        "cur-timeout-01",
+        "cur-timeout-05",
+        "cur-timeout-06"
+      ],
+      "p": 0.4375,
+      "test": "exact one-sided sign-flip test on per-case event counts",
+      "rose": true,
+      "per_case": [
+        {
+          "case": "cur-timeout-05",
+          "a": 0,
+          "b": 3,
+          "reps_a": 3,
+          "reps_b": 3
+        },
+        {
+          "case": "cur-timeout-01",
+          "a": 1,
+          "b": 2,
+          "reps_a": 3,
+          "reps_b": 3
+        },
+        {
+          "case": "cur-repeat-03",
+          "a": 1,
+          "b": 0,
+          "reps_a": 3,
+          "reps_b": 3
+        },
+        {
+          "case": "cur-timeout-06",
+          "a": 1,
+          "b": 0,
+          "reps_a": 3,
+          "reps_b": 3
+        }
+      ],
+      "units_changed": 4,
+      "min_possible_p": 0.0625,
+      "p_adjusted": 0.4375,
+      "significant": false
+    }
+  ],
+  "impacts": [
+    {
+      "column": "unauthorized_cents",
+      "unit": "cents",
+      "sum_a": 20500.0,
+      "sum_b": 46740.0,
+      "shown_a": "$205.00",
+      "shown_b": "$467.40",
+      "per_row_a": 213.54166666666666,
+      "per_row_b": 486.875,
+      "shown_per_row_a": "$2.14",
+      "shown_per_row_b": "$4.87"
+    }
+  ],
+  "regressed": [
+    {
+      "case": "cur-timeout-05",
+      "a": 1.0,
+      "b": 0.7000000000000001,
+      "worse": true,
+      "every_repeat": true,
+      "values_a": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "values_b": [
+        0.7000000000000001,
+        0.7000000000000001,
+        0.7000000000000001
+      ]
+    },
+    {
+      "case": "cur-timeout-01",
+      "a": 0.9,
+      "b": 0.8000000000000002,
+      "worse": true,
+      "every_repeat": false,
+      "values_a": [
+        1.0,
+        1.0,
+        0.7000000000000001
+      ],
+      "values_b": [
+        0.7000000000000001,
+        1.0,
+        0.7000000000000001
+      ]
+    }
+  ],
+  "improved": [
+    {
+      "case": "cur-repeat-03",
+      "a": 0.9,
+      "b": 1.0,
+      "worse": false,
+      "every_repeat": false,
+      "values_a": [
+        1.0,
+        0.7000000000000001,
+        1.0
+      ],
+      "values_b": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case": "cur-timeout-06",
+      "a": 0.9,
+      "b": 1.0,
+      "worse": false,
+      "every_repeat": false,
+      "values_a": [
+        1.0,
+        1.0,
+        0.7000000000000001
+      ],
+      "values_b": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case": "cur-repeat-01",
+      "a": 0.8333333333333334,
+      "b": 1.0,
+      "worse": false,
+      "every_repeat": false,
+      "values_a": [
+        0.5,
+        1.0,
+        1.0
+      ],
+      "values_b": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  ],
+  "noise": {
+    "unstable_a": [
+      "cur-repeat-01",
+      "cur-repeat-03",
+      "cur-timeout-01",
+      "cur-timeout-06"
+    ],
+    "unstable_b": [
+      "cur-timeout-01"
+    ],
+    "multi_repeat_cases_a": 32,
+    "multi_repeat_cases_b": 32
+  },
+  "slices": [
+    {
+      "slice": "clean-single",
+      "n_cases": 4,
+      "mean_a": 1.0,
+      "mean_b": 1.0,
+      "diff": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "guards": [
+        {
+          "guard": "duplicate_effects>0",
+          "a": 0,
+          "b": 0
+        }
+      ]
+    },
+    {
+      "slice": "duplicate-ticket",
+      "n_cases": 3,
+      "mean_a": 1.0,
+      "mean_b": 1.0,
+      "diff": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "guards": [
+        {
+          "guard": "duplicate_effects>0",
+          "a": 0,
+          "b": 0
+        }
+      ]
+    },
+    {
+      "slice": "legit-partial-refund",
+      "n_cases": 5,
+      "mean_a": 1.0,
+      "mean_b": 1.0,
+      "diff": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "guards": [
+        {
+          "guard": "duplicate_effects>0",
+          "a": 0,
+          "b": 0
+        }
+      ]
+    },
+    {
+      "slice": "legit-repeat-purchase",
+      "n_cases": 4,
+      "mean_a": 0.9333333333333333,
+      "mean_b": 1.0,
+      "diff": 0.06666666666666665,
+      "ci": [
+        -0.06325615969584483,
+        0.19658949302917814
+      ],
+      "guards": [
+        {
+          "guard": "duplicate_effects>0",
+          "a": 1,
+          "b": 0
+        }
+      ]
+    },
+    {
+      "slice": "parallel-worker",
+      "n_cases": 2,
+      "mean_a": 1.0,
+      "mean_b": 1.0,
+      "diff": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "guards": [
+        {
+          "guard": "duplicate_effects>0",
+          "a": 0,
+          "b": 0
+        }
+      ]
+    },
+    {
+      "slice": "partial-failure",
+      "n_cases": 4,
+      "mean_a": 1.0,
+      "mean_b": 1.0,
+      "diff": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "guards": [
+        {
+          "guard": "duplicate_effects>0",
+          "a": 0,
+          "b": 0
+        }
+      ]
+    },
+    {
+      "slice": "resumed-session",
+      "n_cases": 3,
+      "mean_a": 1.0,
+      "mean_b": 1.0,
+      "diff": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "guards": [
+        {
+          "guard": "duplicate_effects>0",
+          "a": 0,
+          "b": 0
+        }
+      ]
+    },
+    {
+      "slice": "timeout-then-retry",
+      "n_cases": 7,
+      "mean_a": 0.9714285714285714,
+      "mean_b": 0.9285714285714286,
+      "diff": -0.04285714285714283,
+      "ci": [
+        -0.16053618249702484,
+        0.07482189678273918
+      ],
+      "guards": [
+        {
+          "guard": "duplicate_effects>0",
+          "a": 2,
+          "b": 5
+        }
+      ]
+    }
+  ],
+  "perf": {},
+  "alpha": 0.05,
+  "max_drop": null
+}
