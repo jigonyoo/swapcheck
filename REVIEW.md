@@ -43,6 +43,17 @@ A fifth reviewer, new to the code, reproduced each row above on the old version,
 | 17 | A row that errored but still carried passing grades counted as no failure. | Every errored row counts as failing every assertion, as documented. |
 | 18 | "Repeat noise" survived in `--help`, the demo title and one README table cell. Mixing providers, and the check on each side separately, had no test. | Reworded; tests added. |
 
+## After publication
+
+One more reviewer compared everything published under this name with the release (GitHub files, README links, the repository description, the dev.to article that links here). The remote files matched the release byte for byte, and every number in the README matched its command. It found four places that still said something untrue, all fixed:
+
+| # | What was wrong | Fixed |
+|---|---|---|
+| 19 | The package summary (`pip show`) and the first paragraph of `swapcheck --help` still described the draft rule: block whenever a failure goes up. | Both now say a rise blocks when it is more than chance. A test checks the help text. |
+| 20 | The README called `unauthorized_cents` "money paid twice or over the cap". In the source data it is the whole order total once an order goes over the $50 cap without a human; a duplicate under $50 adds nothing to it. | Renamed "Paid over the $50 per-order cap without approval". |
+| 21 | The CHANGELOG said "unreleased" after release. | Dated. |
+| 22 | This file said macOS was never checked. | It now says macOS was checked on GitHub Actions only. |
+
 ## What the reviewers confirmed
 
 - In the re-check, every number in the README matched the output of the command that produces it.

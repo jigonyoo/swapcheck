@@ -145,8 +145,8 @@ The statistics are standard. Averaging repeats within a question and comparing m
 
 ```bash
 pip install -e ".[test]"
-pytest -q                            # 63 pass; the SciPy and errorbars cross-checks are skipped
-pip install -e ".[crosscheck]"       # adds SciPy and errorbars: 67 pass
+pytest -q                            # 64 pass; the SciPy and errorbars cross-checks are skipped
+pip install -e ".[crosscheck]"       # adds SciPy and errorbars: 68 pass
 python bench/guard_calibration.py    # the table above, about 40 seconds
 ```
 
