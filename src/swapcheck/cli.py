@@ -19,7 +19,8 @@ def _parser() -> argparse.ArgumentParser:
     ap = argparse.ArgumentParser(
         prog="swapcheck",
         description="Before you switch models or ship a prompt change: compare two recorded "
-                    "eval runs case by case, and block if a failure you care about went up.")
+                    "eval runs case by case, and block when a failure you named rises by more "
+                    "than chance.")
     ap.add_argument("--version", action="version", version=f"swapcheck {__version__}")
     sub = ap.add_subparsers(dest="cmd", required=True)
 
