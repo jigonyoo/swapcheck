@@ -6,6 +6,63 @@ Switching models or rewriting a prompt? See what broke, not just the average.
 
 It does not call any model. You give it results you already have: a promptfoo `-o results.json`, JSONL or CSV. Pure Python, no dependencies, no API key, no network.
 
+## Install
+
+Requires Python 3.10 or newer. Once the release is published to PyPI:
+
+```bash
+pip install swapcheck
+```
+
+## Use in CI
+
+Commit your recorded before/after runs alongside your evaluation cases. This GitHub
+Actions example assumes they are at `evals/before.jsonl` and `evals/after.jsonl`,
+with `score` and `duplicate_payment` columns:
+
+```yaml
+name: Check model or prompt switch
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install swapcheck==0.2.0
+      - run: >-
+          swapcheck compare evals/before.jsonl evals/after.jsonl
+          --metric score --guard 'duplicate_payment>0'
+          --fail-on review --out swapcheck-report
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: swapcheck-report
+          path: swapcheck-report/
+```
+
+This fails the job on REVIEW or BLOCK and uploads the report even when the
+comparison fails. Generate your eval runs separately; swapcheck only reads them.
+
+## Synthetic sample report
+
+[`examples/sample_report.md`](examples/sample_report.md) shows a customer-facing
+decision summary and the tool's report using entirely invented refund tickets.
+It contains no customer data and makes no claim about any real model.
+After installing swapcheck, reproduce it from the repository root:
+
+```bash
+python3 examples/generate_sample_report.py
+```
+
+For an uninstalled checkout, use
+`PYTHONPATH=src python3 examples/generate_sample_report.py` instead. No model calls
+or network access are needed to generate the report.
+
 ## What it found in the bundled example
 
 The bundled data is 32 refund-desk cases (an agent handling refund tickets with timeouts, retries and repeat purchases), each run 3 times per model. It comes from [duplicate-side-effect-desk](https://github.com/jigonyoo/duplicate-side-effect-desk) (`reports/model_eval_20260923.jsonl`, MIT, same author), copied unchanged.
@@ -150,12 +207,20 @@ pip install -e ".[crosscheck]"       # adds SciPy and errorbars: 68 pass
 python bench/guard_calibration.py    # the table above, about 40 seconds
 ```
 
+For maintainers: before publishing, register a PyPI trusted publisher for
+`jigonyoo/swapcheck`, workflow `release.yml`, environment `pypi`, and configure
+the matching GitHub environment. Pushing a `v0.2.0` tag builds the sdist and wheel
+and publishes them without a stored PyPI token; the tag must match the package
+version. The release workflow has not been exercised by local tests.
+
 ## License
 
 MIT. See [LICENSE](LICENSE).
 
 Built with AI assistance and reviewed by separate reviewers before release; what they found and what changed is in [REVIEW.md](REVIEW.md).
 
----
+## Need this as a service?
 
-Want this run on your own prompts and cases before you switch? Model & Prompt Switch Check, fixed scope, from $500: [jigonyoo.com](https://jigonyoo.com)
+swapcheck is the free tool for the [Model & prompt switch check](https://jigonyoo.com)
+diagnostic, a fixed-scope service starting at $500. If you want help checking your
+own recorded runs before a switch, see the service page for scope and contact details.

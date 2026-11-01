@@ -4,17 +4,28 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "swapcheck"
-version = "0.1.0"
+version = "0.2.0"
 description = "Compare two recorded eval runs case by case before switching models or prompts, and block when a failure you named rises by more than chance"
 requires-python = ">=3.10"
 dependencies = []
 license = "MIT"
 authors = [{name = "Jigon Yoo"}]
-readme = "README.md"
+readme = {file = "README.md", content-type = "text/markdown"}
 keywords = ["llm", "evaluation", "regression", "promptfoo", "statistics"]
 
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: Software Development :: Testing",
+]
+
 [project.urls]
-Homepage = "https://github.com/jigonyoo/swapcheck"
+Homepage = "https://jigonyoo.com"
+Source = "https://github.com/jigonyoo/swapcheck"
+Issues = "https://github.com/jigonyoo/swapcheck/issues"
 
 [project.optional-dependencies]
 test = ["pytest>=7"]
