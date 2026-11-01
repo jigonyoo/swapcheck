@@ -10,7 +10,7 @@ Decision: hold this candidate switch and investigate the five newly failing tick
 
 - **BLOCK** — `duplicate_payment>0` happened 0 -> 15 times (in 0 -> 5 of 12 cases). Unlikely to be chance: if the two setups behaved the same, a rise this large would come up with p = 0.031 (blocks at <= 0.1).
 - **REVIEW** — `unauthorized_cents` rose: total $0.00 -> $375.00. Not tested on its own; the guards say whether the failures behind it could be chance.
-- **OK** — Average `score`: 0.900 -> 0.920 (+0.020): better on Synthetic candidate (95% interval +0.020 to +0.020, p = 0.000).
+- **OK** — Average `score`: 0.903 -> 0.908 (+0.006): within noise (95% interval -0.015 to +0.026; this sample only reliably sees changes larger than about 0.029). Set --max-drop to say how much loss you accept.
 
 ## What broke
 
@@ -38,15 +38,25 @@ Decision: hold this candidate switch and investigate the five newly failing tick
 
 Over the paired cases, every repeat included. Higher is worse.
 
-## Cases that got worse on Synthetic candidate: 0
+## Cases that got worse on Synthetic candidate: 7
 
-Cases that got better on Synthetic candidate: 12.
+| case | Synthetic current mean | Synthetic candidate mean | worse on every repeat? | Synthetic current values | Synthetic candidate values |
+|---|---|---|---|---|---|
+| synthetic-ticket-01 | 0.914 | 0.874 | yes | 0.899367, 0.917824, 0.924053 | 0.869795, 0.887935, 0.864344 |
+| synthetic-ticket-02 | 0.887 | 0.865 | yes | 0.884061, 0.876377, 0.901311 | 0.868509, 0.856249, 0.870093 |
+| synthetic-ticket-06 | 0.898 | 0.878 | yes | 0.90139, 0.895466, 0.896314 | 0.878432, 0.876168, 0.877976 |
+| synthetic-ticket-12 | 0.868 | 0.849 | yes | 0.859841, 0.887138, 0.857996 | 0.855264, 0.847053, 0.845431 |
+| synthetic-ticket-11 | 0.910 | 0.902 | no | 0.907066, 0.899658, 0.923584 | 0.915869, 0.888729, 0.900337 |
+| synthetic-ticket-10 | 0.927 | 0.919 | no | 0.9288, 0.939164, 0.913177 | 0.919875, 0.922404, 0.913915 |
+| synthetic-ticket-04 | 0.931 | 0.930 | no | 0.911143, 0.941333, 0.939718 | 0.914961, 0.935241, 0.940282 |
+
+Cases that got better on Synthetic candidate: 5.
 
 ## The statistics
 
 | | Synthetic current | Synthetic candidate | change | 95% interval | p | rough smallest detectable change |
 |---|---|---|---|---|---|---|
-| `score` (mean over 12 cases) | 0.9000 | 0.9200 | +0.0200 | [+0.0200, +0.0200] | 0.000 | — |
+| `score` (mean over 12 cases) | 0.9027 | 0.9084 | +0.0057 | [-0.0150, +0.0264] | 0.557 | 0.029 |
 
 Each case's repeats are averaged first; the two runs are then compared case by case (paired t on the per-case differences).
 
@@ -56,7 +66,7 @@ Guard p-values ask one question: if the two setups behaved the same, how often w
 
 ## Repeat noise
 
-Cases whose score differed between repeats of the *same* setup: 0 of 12 in Synthetic current, 0 of 12 in Synthetic candidate (counting only cases run more than once). A case that disagrees with itself cannot tell you much about a switch.
+Cases whose score differed between repeats of the *same* setup: 12 of 12 in Synthetic current, 12 of 12 in Synthetic candidate (counting only cases run more than once). A case that disagrees with itself cannot tell you much about a switch.
 
 ## What was compared
 

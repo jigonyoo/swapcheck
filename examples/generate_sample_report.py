@@ -1,6 +1,7 @@
 """Rebuild the synthetic sample; run from the repository root after installation."""
 
 from pathlib import Path
+from random import Random
 
 from swapcheck.compare import Impact, Options, compare
 from swapcheck.io import Condition
@@ -8,14 +9,18 @@ from swapcheck.report import to_markdown
 
 
 def sample_report():
+    rng = Random(42)
     before, after = [], []
     for case in range(12):
+        # Case difficulty and candidate gains vary, as does each setup's repeat.
+        baseline = 0.9 + rng.uniform(-0.03, 0.03)
+        gain = 0.02 + rng.uniform(-0.05, 0.05)
         for repeat in range(3):
             common = {"case_id": f"synthetic-ticket-{case + 1:02d}"}
-            before.append({**common, "score": 0.9, "duplicate_payment": 0,
+            before.append({**common, "score": baseline + rng.uniform(-0.02, 0.02), "duplicate_payment": 0,
                            "unauthorized_cents": 0})
             bad = case < 5
-            after.append({**common, "score": 0.92, "duplicate_payment": int(bad),
+            after.append({**common, "score": baseline + gain + rng.uniform(-0.02, 0.02), "duplicate_payment": int(bad),
                           "unauthorized_cents": 2500 if bad else 0})
     result = compare(before, after, Options(
         metric="score", guards=[Condition.parse("duplicate_payment>0")],
