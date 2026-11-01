@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.0 — 2026-11-01
+
+- Prepare PyPI metadata and tag-triggered trusted publishing for source and wheel distributions.
+- Document installation, CI usage, and the optional Model & prompt switch check service.
+- Add a reproducible, entirely synthetic customer-facing sample report.
+- Check package metadata and version consistency in tests.
+- Comparison rules and report semantics are unchanged.
+
 ## 0.1.0 — 2026-10-04
 
 First version, published 2026-10-04. Changes made before release, after independent review (details in [REVIEW.md](REVIEW.md)):
